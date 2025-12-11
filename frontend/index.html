@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid 聊天应用</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- 顶部栏 -->
+        <div class="chat-header">
+            <div class="header-left">
+                <h2 id="roomName">聊天室</h2>
+                <span class="online-count" id="onlineCount">0 人在线</span>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" id="searchBtn" title="搜索">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="roomBtn" title="房间管理">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- 登录/用户信息面板 -->
+        <div class="login-panel" id="loginPanel">
+            <div class="login-form">
+                <h2>加入聊天</h2>
+                <input type="text" id="userIdInput" placeholder="输入用户ID" required>
+                <input type="text" id="usernameInput" placeholder="输入用户名（可选）">
+                <input type="text" id="roomIdInput" placeholder="房间ID（默认：default）" value="default">
+                <button id="joinBtn">加入</button>
+            </div>
+        </div>
+
+        <!-- 搜索面板 -->
+        <div class="search-panel" id="searchPanel" style="display: none;">
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="搜索消息...">
+                <button id="searchCancelBtn">取消</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <!-- 房间管理面板 -->
+        <div class="room-panel" id="roomPanel" style="display: none;">
+            <h3>房间列表</h3>
+            <div class="room-list" id="roomList"></div>
+            <div class="create-room">
+                <input type="text" id="newRoomInput" placeholder="新房间ID">
+                <button id="createRoomBtn">创建房间</button>
+            </div>
+            <button id="roomCancelBtn">关闭</button>
+        </div>
+
+        <!-- 消息区域 -->
+        <div class="messages-container" id="messagesContainer">
+            <div class="messages" id="messages">
+                <div class="loading" id="loadingMore">加载中...</div>
+            </div>
+        </div>
+
+        <!-- 在线用户列表 -->
+        <div class="users-sidebar" id="usersSidebar">
+            <h3>在线用户</h3>
+            <div class="users-list" id="usersList"></div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-area">
+            <div class="input-toolbar">
+                <button class="icon-btn" id="emojiBtn" title="表情">
+                    <span>😀</span>
+                </button>
+                <button class="icon-btn" id="mediaBtn" title="媒体">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-wrapper">
+                <textarea id="messageInput" placeholder="输入消息..." rows="1"></textarea>
+                <button id="sendBtn">发送</button>
+            </div>
+            <input type="file" id="mediaInput" accept="audio/*,video/*,image/*" style="display: none;">
+        </div>
+
+        <!-- 表情选择器 -->
+        <div class="emoji-picker" id="emojiPicker" style="display: none;">
+            <div class="emoji-grid">
+                <span class="emoji">😀</span><span class="emoji">😃</span><span class="emoji">😄</span><span class="emoji">😁</span>
+                <span class="emoji">😅</span><span class="emoji">😂</span><span class="emoji">🤣</span><span class="emoji">😊</span>
+                <span class="emoji">😇</span><span class="emoji">🙂</span><span class="emoji">🙃</span><span class="emoji">😉</span>
+                <span class="emoji">😌</span><span class="emoji">😍</span><span class="emoji">🥰</span><span class="emoji">😘</span>
+                <span class="emoji">😗</span><span class="emoji">😙</span><span class="emoji">😚</span><span class="emoji">😋</span>
+                <span class="emoji">😛</span><span class="emoji">😝</span><span class="emoji">😜</span><span class="emoji">🤪</span>
+                <span class="emoji">🤨</span><span class="emoji">🧐</span><span class="emoji">🤓</span><span class="emoji">😎</span>
+                <span class="emoji">🤩</span><span class="emoji">🥳</span><span class="emoji">😏</span><span class="emoji">😒</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+

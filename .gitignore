@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Database files
+server/chat.json
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# Build files
+build/
+dist/
+.apk/
+*.apk
+*.aab
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Android
+local.properties
+.gradle/
+app/build/
+
+# Temporary files
+*.tmp
+*.temp
+
+

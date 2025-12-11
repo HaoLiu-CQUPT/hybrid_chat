@@ -1,0 +1,17 @@
+{
+  "name": "hybrid-chat-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for hybrid chat application",
+  "scripts": {
+    "dev": "http-server -p 8080 -c-1 --cors",
+    "start": "http-server -p 8080 -c-1 --cors"
+  },
+  "keywords": ["chat", "websocket", "frontend"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+
+
